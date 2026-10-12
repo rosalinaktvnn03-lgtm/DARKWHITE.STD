@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>Darkwhite Studio — Design Sales</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#17202d;--muted:#788394;--line:#e7ebf0;--green:#14845b;--red:#d94f58;--navy:#111827;--blue:#4b61c8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
+button,input,select{font:inherit}button{cursor:pointer;border:0}.app{max-width:1100px;margin:auto;padding:22px 16px 40px}
+.top,.brand,.hero,.panel-title,.stat-head,.tx{display:flex;align-items:center;justify-content:space-between;gap:12px}.top{margin-bottom:22px}.brand{justify-content:flex-start}.mark{background:var(--navy);color:white;border-radius:14px;width:46px;height:46px;display:grid;place-items:center;font-weight:850;flex-shrink:0}
+.brand h1{font-size:20px;margin:0}.brand p{font-size:12px;color:var(--muted);margin:4px 0 0}.month{max-width:150px;padding:10px;border:1px solid var(--line);border-radius:11px;background:white}
+.hero{background:var(--navy);color:white;padding:25px;border-radius:22px;flex-wrap:wrap;box-shadow:0 10px 30px #11182714}
+.eyebrow{font-size:12px;color:#bac4d3;letter-spacing:1.4px;text-transform:uppercase}.hero-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 28px;margin:16px 0}
+.hero-label{font-size:12px;color:#c4ccd8;margin-bottom:5px}.hero-value{font-size:clamp(20px,3vw,30px);font-weight:780;overflow-wrap:anywhere}.hero-value.small{font-size:clamp(17px,2.5vw,22px)}
+.sub{font-size:13px;color:#c4ccd8}.primary{background:white;color:var(--navy);padding:12px 16px;border-radius:11px;font-weight:700;white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:16px 0 22px}.stat,.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;min-width:0}
+.stat-head{font-size:13px;color:var(--muted)}.ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:17px;flex-shrink:0}.green{background:#e8f7ef;color:var(--green)}.red{background:#fff0f0;color:var(--red)}.blue{background:#edf2ff;color:var(--blue)}
+.amount{font-size:clamp(17px,2.5vw,24px);font-weight:750;margin-top:13px;overflow-wrap:anywhere}.positive{color:var(--green)}.negative{color:var(--red)}
+.content{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}.panel-title{margin-bottom:15px}.panel-title h2{font-size:17px;margin:0}.muted{font-size:12px;color:var(--muted)}
+.filters,.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:13px}.filters select,.filters input,.field input,.field select{border:1px solid var(--line);border-radius:10px;padding:10px;background:white;min-width:0;max-width:100%}.filters input{flex:1}
+.transactions{display:flex;flex-direction:column}.tx{justify-content:flex-start;border-top:1px solid var(--line);padding:13px 0}.txicon{width:38px;height:38px;display:grid;place-items:center;background:#f1f3f6;border-radius:12px;flex-shrink:0}.txmain{flex:1;min-width:0}.txname{font-size:14px;font-weight:700;overflow-wrap:anywhere}.txmeta{font-size:12px;color:var(--muted);margin-top:4px}.txright{text-align:right;flex-shrink:0}.txamount{font-size:13px;font-weight:750;overflow-wrap:anywhere}.txactions{display:flex;justify-content:flex-end;gap:5px;margin-top:6px}.tiny{background:#f1f3f6;color:#5b6574;border-radius:7px;padding:5px 7px;font-size:11px}
+.empty{text-align:center;color:var(--muted);font-size:13px;padding:30px 8px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:650;color:#4b5563}.field input,.field select{width:100%}
+.switch{display:grid;grid-template-columns:1fr 1fr;background:#f0f2f5;border-radius:11px;padding:4px;gap:4px}.switch button{padding:10px;border-radius:8px;background:transparent;color:var(--muted);font-weight:650}.switch button.active[data-kind="income"]{background:white;color:var(--green)}.switch button.active[data-kind="expense"]{background:white;color:var(--red)}
+.save{width:100%;background:var(--navy);color:white;padding:13px;border-radius:11px;font-weight:700;margin-top:15px}.secondary{background:#f0f2f5;color:var(--ink);padding:10px 12px;border-radius:9px;font-weight:650}.tools{margin-top:14px;margin-bottom:0}
+.note{margin-top:15px;padding:12px;background:#fff9e9;border:1px solid #f3e6be;color:#77612b;border-radius:11px;font-size:12px;line-height:1.5}.footer{text-align:center;color:var(--muted);font-size:11px;margin-top:24px}.hidden{display:none!important}
+@media(max-width:740px){.app{padding:15px 11px 30px}.stats{grid-template-columns:1fr;gap:9px}.stat{padding:14px}.amount{margin-top:8px}.content{grid-template-columns:1fr}.hero{padding:21px}.panel{padding:15px}.hero-grid{gap:14px 12px}}
+@media(max-width:420px){.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.brand h1{font-size:17px}.month{max-width:135px}.tx{gap:8px}.txicon{width:34px;height:34px}.txamount{font-size:12px}.primary{padding:10px 11px;font-size:13px}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="top"><div class="brand"><div class="mark">DW</div><div><h1>Darkwhite Studio</h1><p>Design sales & finance tracker</p></div></div><input id="month" class="month" type="month" aria-label="Pilih bulan"></header>
+<section class="hero">
+  <div style="flex:1;min-width:250px">
+    <div class="eyebrow">Ringkasan bulan ini</div>
+    <div class="hero-grid">
+      <div><div class="hero-label">Pemasukan Rupiah</div><div class="hero-value" id="heroIncomeIDR">Rp0</div></div>
+      <div><div class="hero-label">Pemasukan Dolar AS</div><div class="hero-value" id="heroIncomeUSD">$0.00</div></div>
+      <div><div class="hero-label">Pengeluaran Rupiah</div><div class="hero-value small" id="heroExpenseIDR">Rp0</div></div>
+      <div><div class="hero-label">Pengeluaran Dolar AS</div><div class="hero-value small" id="heroExpenseUSD">$0.00</div></div>
+    </div>
+    <div class="sub" id="subtitle">Catat penjualan desain pertamamu</div>
+  </div>
+  <button class="primary" id="jump">＋ Tambah transaksi</button>
+</section>
+<section class="stats">
+<div class="stat"><div class="stat-head"><span>Pemasukan (Rupiah)</span><span class="ico green">↗</span></div><div class="amount positive" id="incomeIDR">Rp0</div></div>
+<div class="stat"><div class="stat-head"><span>Pemasukan (Dolar AS)</span><span class="ico blue">$</span></div><div class="amount" id="incomeUSD">$0.00</div></div>
+<div class="stat"><div class="stat-head"><span>Pengeluaran</span><span class="ico red">↘</span></div><div class="amount" id="expenses">Rp0 · $0.00</div></div>
+</section>
+<div class="content">
+<section class="panel">
+<div class="panel-title"><h2>Riwayat transaksi</h2><span class="muted" id="count">0 transaksi</span></div>
+<div class="filters"><select id="typeFilter"><option value="all">Semua transaksi</option><option value="income">Pemasukan</option><option value="expense">Pengeluaran</option></select><select id="currencyFilter"><option value="all">Semua mata uang</option><option value="IDR">Rupiah (IDR)</option><option value="USD">Dolar (USD)</option></select><input id="search" type="search" placeholder="Cari transaksi…"></div>
+<div id="transactions" class="transactions"></div>
+<div class="tools"><button class="secondary" id="export">Ekspor CSV</button><button class="secondary" id="backup">Cadangkan data</button><button class="secondary" id="restore">Pulihkan data</button><input id="file" class="hidden" type="file" accept="application/json"></div>
+</section>
+<section class="panel" id="formPanel">
+<div class="panel-title"><h2 id="formTitle">Tambah transaksi</h2><span class="muted">Penjualan desain</span></div>
+<form id="form">
+<div class="field full"><label>Jenis transaksi</label><div class="switch"><button type="button" data-kind="income" class="active">↗ Pemasukan</button><button type="button" data-kind="expense">↘ Pengeluaran</button></div></div>
+<div class="formgrid">
+<div class="field full"><label for="desc">Keterangan / nama desain</label><input id="desc" required maxlength="100" placeholder="Contoh: Logo brand, T-shirt graphic"></div>
+<div class="field"><label for="amountInput">Nominal</label><input id="amountInput" type="number" min="0.01" step="any" inputmode="decimal" required placeholder="25.00"></div>
+<div class="field"><label for="currency">Mata uang</label><select id="currency"><option value="USD">Dolar AS (USD $)</option><option value="IDR">Rupiah (IDR Rp)</option></select></div>
+<div class="field"><label for="date">Tanggal</label><input id="date" type="date" required></div>
+<div class="field"><label for="category">Kategori</label><select id="category"><option>Penjualan desain</option><option>Logo</option><option>Apparel graphic</option><option>Tech pack</option><option>Jasa desain</option><option>Komisi / freelance</option><option>Lainnya</option></select></div>
+<div class="field full"><label for="platform">Platform / pelanggan (opsional)</label><input id="platform" maxlength="100" placeholder="Contoh: Instagram, Etsy, pelanggan"></div>
+</div>
+<button class="save" id="save" type="submit">Simpan transaksi</button><button class="secondary hidden" id="cancel" type="button" style="width:100%;margin-top:8px">Batal edit</button>
+</form>
+<div class="note"><strong>Catatan mata uang:</strong> total Rupiah dan Dolar ditampilkan terpisah, tidak digabung karena kurs dapat berubah. Data disimpan di browser/perangkat ini. Gunakan “Cadangkan data” secara berkala.</div>
+</section>
+</div>
+<div class="footer">Darkwhite Studio · Design sales tracker</div>
+</main>
+<script>
+(()=> {
+const $=id=>document.getElementById(id);
+const dateNow=()=>{let d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10)};
+const fmt=(n,c)=>new Intl.NumberFormat(c==='IDR'?'id-ID':'en-US',{style:'currency',currency:c,maximumFractionDigits:c==='IDR'?0:2,minimumFractionDigits:c==='IDR'?0:2}).format(n||0);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let data=[],kind='income',editId=null;
+try{data=JSON.parse(localStorage.getItem('darkwhite_studio_transactions')||'[]');if(!Array.isArray(data))data=[]}catch(e){data=[]}
+$('month').value=dateNow().slice(0,7);$('date').value=dateNow();
+function saveData(){localStorage.setItem('darkwhite_studio_transactions',JSON.stringify(data))}
+function setKind(k){kind=k;document.querySelectorAll('[data-kind]').forEach(b=>b.classList.toggle('active',b.dataset.kind===k));let opts=k==='income'?['Penjualan desain','Logo','Apparel graphic','Tech pack','Jasa desain','Komisi / freelance','Lainnya']:['Biaya platform','Software','Promosi','Peralatan','Pajak','Lainnya'];$('category').innerHTML=opts.map(x=>`<option>${x}</option>`).join('')}
+document.querySelectorAll('[data-kind]').forEach(b=>b.onclick=()=>setKind(b.dataset.kind));
+function render(){
+let m=$('month').value,rows=data.filter(t=>t.date.startsWith(m));
+let sum=(type,c)=>rows.filter(t=>t.kind===type&&t.currency===c).reduce((a,t)=>a+Number(t.amount||0),0);
+let ii=sum('income','IDR'),iu=sum('income','USD'),oi=sum('expense','IDR'),ou=sum('expense','USD');
+$('heroIncomeIDR').textContent=fmt(ii,'IDR');$('heroIncomeUSD').textContent=fmt(iu,'USD');
+$('heroExpenseIDR').textContent=fmt(oi,'IDR');$('heroExpenseUSD').textContent=fmt(ou,'USD');
+$('incomeIDR').textContent=fmt(ii,'IDR');$('incomeUSD').textContent=fmt(iu,'USD');$('expenses').textContent=`${fmt(oi,'IDR')} · ${fmt(ou,'USD')}`;
+$('subtitle').textContent=rows.length?`${rows.length} transaksi pada ${new Date(m+'-02T12:00:00').toLocaleDateString('id-ID',{month:'long',year:'numeric'})}`:'Belum ada transaksi bulan ini';
+let q=$('search').value.toLowerCase().trim(),tf=$('typeFilter').value,cf=$('currencyFilter').value;
+rows=rows.filter(t=>(tf==='all'||t.kind===tf)&&(cf==='all'||t.currency===cf)&&`${t.desc} ${t.category} ${t.platform}`.toLowerCase().includes(q)).sort((a,b)=>b.date.localeCompare(a.date)||(b.created||0)-(a.created||0));
+$('count').textContent=`${rows.length} transaksi`;
+$('transactions').innerHTML=rows.length?rows.map(t=>`<div class="tx"><div class="txicon">${t.kind==='income'?'↗':'↘'}</div><div class="txmain"><div class="txname">${esc(t.desc)}</div><div class="txmeta">${esc(t.category)}${t.platform?' · '+esc(t.platform):''} · ${new Date(t.date+'T12:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})}</div></div><div class="txright"><div class="txamount ${t.kind==='income'?'positive':'negative'}">${t.kind==='income'?'+':'−'} ${fmt(t.amount,t.currency)}</div><div class="txactions"><button class="tiny" data-edit="${t.id}">Edit</button> <button class="tiny" data-del="${t.id}">Hapus</button></div></div></div>`).join(''):'<div class="empty">Belum ada transaksi yang cocok.<br>Tambahkan transaksi pertama kamu.</div>';
+}
+$('form').onsubmit=e=>{e.preventDefault();let desc=$('desc').value.trim(),amount=Number($('amountInput').value),date=$('date').value;if(!desc||!Number.isFinite(amount)||amount<=0||!date){alert('Isi keterangan, nominal, dan tanggal dengan benar.');return}
+let item={id:editId||String(Date.now())+Math.random().toString(16).slice(2),kind,desc,amount,currency:$('currency').value,date,category:$('category').value,platform:$('platform').value.trim(),created:Date.now()};
+if(editId)data=data.map(t=>t.id===editId?item:t);else data.push(item);saveData();$('form').reset();$('date').value=dateNow();editId=null;$('formTitle').textContent='Tambah transaksi';$('save').textContent='Simpan transaksi';$('cancel').classList.add('hidden');setKind('income');$('currency').value='USD';$('month').value=date.slice(0,7);render()};
+$('transactions').onclick=e=>{let id=e.target.dataset.edit,del=e.target.dataset.del;if(id){let t=data.find(x=>x.id===id);editId=t.id;setKind(t.kind);$('desc').value=t.desc;$('amountInput').value=t.amount;$('currency').value=t.currency;$('date').value=t.date;$('category').value=t.category;$('platform').value=t.platform||'';$('formTitle').textContent='Edit transaksi';$('save').textContent='Simpan perubahan';$('cancel').classList.remove('hidden');$('formPanel').scrollIntoView({behavior:'smooth'})}
+if(del){let t=data.find(x=>x.id===del);if(confirm(`Hapus transaksi "${t.desc}"?`)){data=data.filter(x=>x.id!==del);saveData();render()}}};
+$('cancel').onclick=()=>{editId=null;$('form').reset();$('date').value=dateNow();$('formTitle').textContent='Tambah transaksi';$('save').textContent='Simpan transaksi';$('cancel').classList.add('hidden');setKind('income');$('currency').value='USD'};
+['month','typeFilter','currencyFilter'].forEach(id=>$(id).addEventListener('change',render));$('search').addEventListener('input',render);$('jump').onclick=()=>$('formPanel').scrollIntoView({behavior:'smooth'});
+function download(blob,name){let u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+$('export').onclick=()=>{let rows=[['Tanggal','Jenis','Keterangan','Kategori','Platform','Mata uang','Nominal'],...data.map(t=>[t.date,t.kind==='income'?'Pemasukan':'Pengeluaran',t.desc,t.category,t.platform,t.currency,t.amount])],csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');download(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),'darkwhite-studio-transaksi.csv')};
+$('backup').onclick=()=>download(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),'darkwhite-studio-backup.json');$('restore').onclick=()=>$('file').click();
+$('file').onchange=async e=>{try{if(!e.target.files[0])return;let d=JSON.parse(await e.target.files[0].text());if(!Array.isArray(d)||!d.every(t=>t.id&&['income','expense'].includes(t.kind)&&['IDR','USD'].includes(t.currency)&&Number.isFinite(Number(t.amount))&&t.date))throw Error();if(confirm(`Pulihkan ${d.length} transaksi? Data saat ini akan diganti.`)){data=d;saveData();render();alert('Data berhasil dipulihkan.')}}catch(e){alert('File cadangan tidak valid.')}e.target.value=''};
+setKind('income');$('currency').value='USD';render();
+})();
+</script>
+</body>
+</html>
